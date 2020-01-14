@@ -1,7 +1,7 @@
 package com.ms.base.throwable.validator;
 
 
-import com.ms.base.beam.UserModel;
+import com.ms.base.beam.User;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
@@ -41,7 +41,7 @@ public class UserValidator<T> extends BaseValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> clazz) {
-        return UserModel.class.isAssignableFrom(clazz);
+        return User.class.isAssignableFrom(clazz);
     }
 
     @Override
@@ -50,9 +50,9 @@ public class UserValidator<T> extends BaseValidator implements Validator {
 //                "name", "required.name", "Field name is required.");
     }
 
-    public BindingResult rulefilter(String[] rules, UserModel item, BindingResult errors) {
+    public BindingResult rulefilter(String[] rules, User item, BindingResult errors) {
 
-        Set<ConstraintViolation<UserModel>> violations = validator.validate(item);
+        Set<ConstraintViolation<User>> violations = validator.validate(item);
 
         violations.stream().map(x -> {
             for (String rule : rules) {
@@ -72,7 +72,7 @@ public class UserValidator<T> extends BaseValidator implements Validator {
     }
 
 
-    public BindingResult applyValidate(String action, UserModel item, BindingResult errors) {
+    public BindingResult applyValidate(String action, User item, BindingResult errors) {
 
         if (action.equalsIgnoreCase("userAdmin")) {
             String[] rules = {"name", "phone", "isoCode", "email", "password"};
@@ -110,7 +110,7 @@ public class UserValidator<T> extends BaseValidator implements Validator {
 //        }
 
 //
-//        Set<ConstraintViolation<UserModel>> violations = validator.validate(item);
+//        Set<ConstraintViolation<User>> violations = validator.validate(item);
 //
 //        if (!this.rules.containsKey(rule)) {
 //            return errors;
@@ -135,7 +135,7 @@ public class UserValidator<T> extends BaseValidator implements Validator {
 //            )
 //
 //        })
-//        for (ConstraintViolation<UserModel> violation : violations) {
+//        for (ConstraintViolation<User> violation : violations) {
 //            String propertyPath = violation.getPropertyPath().toString();
 //            String message = violation.getMessage();
 //            // Add JSR-303 errors to BindingResult

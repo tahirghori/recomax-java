@@ -1,9 +1,8 @@
 package com.ms.base.workspace.service;
 
-import com.ms.base.beam.RoleModel;
-import com.ms.base.beam.UserModel;
+import com.ms.base.beam.Role;
 import org.springframework.stereotype.Service;
 
 @Service("roleService")
-public class RoleServiceImpl extends BaseServiceImpl<RoleModel> implements RoleService {
+public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleService {
 }

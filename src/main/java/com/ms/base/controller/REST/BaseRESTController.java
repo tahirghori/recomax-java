@@ -1,6 +1,6 @@
 package com.ms.base.controller.REST;
 
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import com.ms.base.workspace.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
-public class BaseRESTController<S extends BaseService<T>, T extends BaseModel> {
+public class BaseRESTController<S extends BaseService<T>, T extends Base> {
 
     @Autowired
     S service;

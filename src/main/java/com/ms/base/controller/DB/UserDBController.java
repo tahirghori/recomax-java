@@ -1,7 +1,7 @@
 package com.ms.base.controller.DB;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.ms.base.beam.UserModel;
+import com.ms.base.beam.User;
 import com.ms.base.throwable.validator.UserValidator;
 import com.ms.base.workspace.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,18 +15,18 @@ import static com.ms.base.controller.route.USER_CONTROLLER;
 
 @RestController
 @RequestMapping(value = USER_CONTROLLER)
-public class UserDBController extends BaseDBController<UserService, UserModel, UserValidator> {
+public class UserDBController extends BaseDBController<UserService, User, UserValidator> {
 
     @Autowired
     UserValidator userValidator;
 
     @Override
-    Optional<UserModel> requestCast(JsonNode jsonNode) {
-        return Optional.of(jackson.requestCast(UserModel.class, jsonNode));
+    Optional<User> requestCast(JsonNode jsonNode) {
+        return Optional.of(jackson.requestCast(User.class, jsonNode));
     }
 
     @Override
-    BindingResult applyValidator(String rule, UserModel item, BindingResult errors) {
+    BindingResult applyValidator(String rule, User item, BindingResult errors) {
         return userValidator.applyValidate(rule, item, errors);
     }
 }

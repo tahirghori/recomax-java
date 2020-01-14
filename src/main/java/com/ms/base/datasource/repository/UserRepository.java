@@ -1,6 +1,6 @@
 package com.ms.base.datasource.repository;
 
-import com.ms.base.beam.UserModel;
+import com.ms.base.beam.User;
 
-public interface UserRepository extends BaseRepository<UserModel> {
+public interface UserRepository extends BaseRepository<User> {
 }

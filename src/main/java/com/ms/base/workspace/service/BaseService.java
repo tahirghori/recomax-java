@@ -1,6 +1,6 @@
 package com.ms.base.workspace.service;
 
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface BaseService<T extends BaseModel> {
+public interface BaseService<T extends Base> {
     public T insert(T item);
     public List<T> findAll();
     public List<T> searchByName(String keyword);

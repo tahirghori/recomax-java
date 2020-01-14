@@ -3,7 +3,7 @@ package com.ms.base.controller.DB;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.ms.base.application.Component.UtilEntity;
 import com.ms.base.application.Component.UtilJackson;
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import com.ms.base.throwable.ResponseBuilder;
 import com.ms.base.throwable.validator.BaseValidator;
 import com.ms.base.workspace.service.BaseService;
@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Validated
-public abstract class BaseDBController<S extends BaseService<T>, T extends BaseModel, V extends BaseValidator> {
+public abstract class BaseDBController<S extends BaseService<T>, T extends Base, V extends BaseValidator> {
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired

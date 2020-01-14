@@ -1,6 +1,6 @@
 package com.ms.base.throwable.message;
 
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.validation.BindingResult;
@@ -10,7 +10,7 @@ import java.util.*;
 
 @Getter
 @Setter
-public class WarningMessage<T> extends BaseModel {
+public class WarningMessage<T> extends Base {
 
     private String timestamp ;
     private String message;

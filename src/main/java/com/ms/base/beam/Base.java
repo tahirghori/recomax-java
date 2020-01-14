@@ -25,7 +25,7 @@ import java.util.UUID;
 @JsonIgnoreProperties(value = {"createdAt", "updatedAt"},
         allowGetters = true)
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class BaseModel implements Serializable {
+public class Base implements Serializable {
 
 
     //    @JsonInclude

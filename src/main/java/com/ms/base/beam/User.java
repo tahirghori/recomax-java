@@ -1,6 +1,5 @@
 package com.ms.base.beam;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -16,17 +15,26 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "user_model")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class UserModel extends BaseModel {
-
-
-
+public class User extends Base {
 
     @NotEmpty(message = "Please enter your name")
     @Size(min = 3, max = 25, message = "Minimum name length: 3 - 25 characters")
-    @Pattern(regexp="[a-zA-Z]+([\\s][a-zA-Z]+)*", message =  "Only characters are allowed!")
+    @Pattern(regexp = "[a-zA-Z]+([\\s][a-zA-Z]+)*", message = "Only characters are allowed!")
     protected String name;
 
+
+    @NotEmpty(message = "Please enter your Last Name")
+    @Size(min = 3, max = 25, message = "Minimum name length: 3 - 25 characters")
+    @Pattern(regexp = "[a-zA-Z]+([\\s][a-zA-Z]+)*", message = "Only characters are allowed!")
+    protected String lastName;
+
+    @NotEmpty(message = "Please enter your First Name")
+    @Size(min = 3, max = 25, message = "Minimum name length: 3 - 25 characters")
+    @Pattern(regexp = "[a-zA-Z]+([\\s][a-zA-Z]+)*", message = "Only characters are allowed!")
+    protected String firstName;
+
     private String authId;
+    private String clientId;
 
     @NotNull(message = "Please enter your DOB")
     private String dateOfBirth;
@@ -40,6 +48,7 @@ public class UserModel extends BaseModel {
     private String isoCode;
 
     private String type;
+    private boolean isactive;
 
     private String rewardCode;
 
@@ -50,6 +59,8 @@ public class UserModel extends BaseModel {
     private String image;
 
 
+    @ElementCollection
+    private List<String> phoneNumbers = new ArrayList<String>();
 
     @NotEmpty(message = "Please enter your email address")
     @Email
@@ -65,7 +76,7 @@ public class UserModel extends BaseModel {
     private String referralCode;
 
 
-//    @Enumerated
+    //    @Enumerated
     @Min(value = 0, message = "Gender can not be other than 0 or 1")
     @Max(value = 1, message = "Gender can not be other than 0 or 1")
     public int gender;
@@ -77,7 +88,7 @@ public class UserModel extends BaseModel {
 
 
     @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    private Collection<RoleModel> userRoles;
+    private Collection<Role> userRoles;
 
 
 }

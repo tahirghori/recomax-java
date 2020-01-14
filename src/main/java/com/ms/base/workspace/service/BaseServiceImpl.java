@@ -1,6 +1,6 @@
 package com.ms.base.workspace.service;
 
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import com.ms.base.datasource.repository.BaseRepository;
 import com.ms.base.throwable.ResponseBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class BaseServiceImpl<T extends BaseModel> implements BaseService<T> {
+public class BaseServiceImpl<T extends Base> implements BaseService<T> {
 
     @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired

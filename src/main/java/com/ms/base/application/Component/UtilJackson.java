@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ms.base.beam.BaseModel;
+import com.ms.base.beam.Base;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UtilJackson<I extends BaseModel> {
+public class UtilJackson<I extends Base> {
 
     public I requestCast(Class<?> T, JsonNode jsonNode){
         ObjectMapper mapper = new ObjectMapper();
