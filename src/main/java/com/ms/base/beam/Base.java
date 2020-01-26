@@ -29,11 +29,17 @@ public class Base implements Serializable {
 
 
     //    @JsonInclude
+//    @Id
+//    @GeneratedValue(generator = "uuid2")
+//    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+//    @Column(name = "id", columnDefinition = "BINARY(16)")
+//    protected UUID id;
+
     @Id
     @GeneratedValue(generator = "uuid2")
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
-    @Column(name = "id", columnDefinition = "BINARY(16)")
-    protected UUID id;
+    @Type(type = "uuid-binary")
+    private UUID id;
 
 
     @CreationTimestamp

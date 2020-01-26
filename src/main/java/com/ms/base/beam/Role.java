@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "role_model")
+@Table(name = "[role]")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Role extends Base {
 

@@ -49,7 +49,7 @@ public class BaseServiceImpl<T extends Base> implements BaseService<T> {
 
     @Override
     public List<T> getAll() {
-        return repository.findAllByDeleted(false);
+        return repository.findAll();
     }
 
     @Override
@@ -116,7 +116,7 @@ public class BaseServiceImpl<T extends Base> implements BaseService<T> {
 
     @Override
     public Page<T> findAllActive(Pageable pageable) {
-        return  repository.findAllByDeleted(false,pageable);
+        return  repository.findAll(pageable);
     }
 
 }

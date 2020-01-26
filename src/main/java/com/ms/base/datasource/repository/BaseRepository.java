@@ -12,8 +12,6 @@ import java.util.UUID;
 
 @NoRepositoryBean
 public interface BaseRepository<T extends Base> extends JpaRepository<T, UUID> {
-    List<T> findAllByDeleted(Boolean deleted);
-    Page<T> findAllByDeleted(Boolean deleted, Pageable pageReguest);
     T findByName(String name);
     List<T> findByNameContainingIgnoreCase(String keyword);
 }

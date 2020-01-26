@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "user_model")
+@Table(name = "[user]")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class User extends Base {
 
@@ -22,6 +22,10 @@ public class User extends Base {
     @Pattern(regexp = "[a-zA-Z]+([\\s][a-zA-Z]+)*", message = "Only characters are allowed!")
     protected String name;
 
+//    @OneToOne(fetch = FetchType.LAZY,
+//            cascade =  CascadeType.ALL,
+//            mappedBy = "user")
+//    private Event event;
 
     @NotEmpty(message = "Please enter your Last Name")
     @Size(min = 3, max = 25, message = "Minimum name length: 3 - 25 characters")
@@ -47,7 +51,7 @@ public class User extends Base {
     @Size(min = 2, max = 3, message = "Phone Country code required with 2-3 length!")
     private String isoCode;
 
-    private String type;
+
     private boolean isactive;
 
     private String rewardCode;
@@ -58,9 +62,6 @@ public class User extends Base {
     @NotEmpty(message = "Upload Image")
     private String image;
 
-
-    @ElementCollection
-    private List<String> phoneNumbers = new ArrayList<String>();
 
     @NotEmpty(message = "Please enter your email address")
     @Email
@@ -87,8 +88,8 @@ public class User extends Base {
 //    }
 
 
-    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
-    private Collection<Role> userRoles;
+//    @ManyToMany(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+//    private Collection<Role> userRoles;
 
 
 }
