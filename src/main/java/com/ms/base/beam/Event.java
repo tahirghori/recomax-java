@@ -18,8 +18,8 @@ public class Event extends Base {
     private String timestamp;
     private String endpoint;
     private String method;
-
-
+    private String clientIp;
+    private String userId;
     private String sessionId;
 
 //
